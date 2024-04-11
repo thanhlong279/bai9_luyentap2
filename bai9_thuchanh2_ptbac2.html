@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<! giai pt bac 2 co dang ax^2+bx+c=0
+<h2>giai pt bac nhat ax^2 + bx + c = 0</h2><br>
+<label>nhap a:</label>
+<input type="number" id = "a"><br>
+<label>nhap b:</label>
+<input type="number" id = "b"><br>
+<label>nhap c:</label>
+<input type="number" id = "c"><br>
+<button onclick="kiemtra()">Kiem tra</button>
+<p id="result">hiển thị kết quả</p>
+<script>
+    function kiemtra(){
+        let a = +document.getElementById("a").value;
+        let b = +document.getElementById("b").value;
+        let c = +document.getElementById("c").value;
+        let delta = (b*b) - (4*a*c);
+        let x = -b/a;
+        let x1 = (-b)/(2*a);
+        let x2 = ((-b) - Math.sqrt(delta))/(2*a);
+        let x3 = ((-b) + Math.sqrt(delta))/(2*a);
+        if (a === 0){
+            // pt dua ve dang bx +c = 0
+            if (b === 0) {
+                if (c !== 0) {
+                    document.getElementById("result").innerHTML = "pt vo nghiem";
+                } else {
+                    document.getElementById("result").innerHTML = "pt vo so nghiem";
+                }
+            }else{
+                document.getElementById("result").innerHTML = " pt co nghiem la: "+x;
+            }
+        }else if(delta < 0){
+            document.getElementById("result").innerHTML = " pt vo nghiem";
+        }else if (delta === 0){
+            document.getElementById("result").innerHTML = " pt co nghiem kep x1= x2= " + x1;
+        }else{
+            document.getElementById("result").innerHTML = "pt co 2 nghiem: x1 =" +x2 + ", x2 = " + x3
+        }
+    }
+</script>
+</body>
+</html>
